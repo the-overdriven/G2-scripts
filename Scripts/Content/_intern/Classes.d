@@ -61,7 +61,7 @@ class C_NPC
 
 	// if this is set to TRUE, the NPC can't be interrupted in any action (e.g. BS_FLAG_INTERRUPTABLE for anis is being ignored)
 	var int bodyStateInterruptableOverride;
-	// if "noFocus" is set to TRUE, the focus name and health bar will not be drawn of this nsc (hi, stefan!)
+	// if "noFocus" is set to TRUE, the focus name and health bar will not be drawn for this NPC (hi, stefan!)
 	var int noFocus;
 };
 
@@ -127,7 +127,7 @@ class C_Item
 	// The 3DS file
 	var string visual;
 
-	// Change to the NSC mesh when equipping this item
+	// Change NPC to this mesh when equipping this item
 	var string visual_change; // ASC file
 	var string effect; // Effect's instance
 
