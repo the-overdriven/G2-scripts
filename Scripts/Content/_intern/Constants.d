@@ -13,37 +13,37 @@ const string FONT_Book = "FONT_10_BOOK.TGA";
 const string FONT_BookHeadline = "FONT_20_BOOK.TGA";
 
 // ****************************
-// Spellkosten für ALLE SCrolls
+// Spell costs for ALL scrolls
 // ****************************
 const int SPL_Cost_Scroll = 5;
 
-// MH: 19.11.01 Gildennamen geändert --> Änderungen in Text.d (Character-Screen Gildenbezeichnungen) und Species.d (Gildenanhängige Bewegungswerte wie z.B Kletterhöhe)
-// MH: 19.11.01 Talente hinzugefügt
-// MH: 15.12.01 Neue Spells hinzugefügt
-// MH: 15.12.01 Neue Player Talente hinzugefügt
+// MH: 19.11.01 Guild names changed --> Changes in Text.d (character screen guild names) and Species.d (guild-dependent movement values such as climbing height)
+// MH: 19.11.01 added talents
+// MH: 15.12.01 added new spells
+// MH: 15.12.01 new player talents added
 
 //
 //	NPC ATTRIBUTES
 //
 
-const int ATR_HITPOINTS = 0; // Lebenspunkte
-const int ATR_HITPOINTS_MAX = 1; // Max. Lebenspunkte
-const int ATR_MANA = 2; // Mana Mana
-const int ATR_MANA_MAX = 3; // Mana Max
+const int ATR_HITPOINTS = 0;
+const int ATR_HITPOINTS_MAX = 1;
+const int ATR_MANA = 2;
+const int ATR_MANA_MAX = 3;
 
-const int ATR_STRENGTH = 4; // Stärke
-const int ATR_DEXTERITY = 5; // Geschick
-const int ATR_REGENERATEHP = 6; // Regenerierung von HP alle x sekunden
-const int ATR_REGENERATEMANA = 7; // Regenerierung von Mana alle x sekunden
+const int ATR_STRENGTH = 4;
+const int ATR_DEXTERITY = 5;
+const int ATR_REGENERATEHP = 6; // HP regeneration every x seconds
+const int ATR_REGENERATEMANA = 7; // MP regeneration every x seconds
 
 const int ATR_INDEX_MAX = 8;
 
 //
 //	NPC FLAGS
 //
-const int NPC_FLAG_FRIEND = 1 << 0; // wird nicht benutzt (wird über aivar geregelt)
-const int NPC_FLAG_IMMORTAL = 1 << 1; // Unverwundbar
-const int NPC_FLAG_GHOST = 1 << 2; // Halb-Transparenter NPC (Gothic.ini [INTERNAL] 'GhostAlpha')
+const int NPC_FLAG_FRIEND = 1 << 0; // Not used (controlled via aivar)
+const int NPC_FLAG_IMMORTAL = 1 << 1; // Immortal
+const int NPC_FLAG_GHOST = 1 << 2; // Semi-transparent NPC (Gothic.ini [INTERNAL] 'GhostAlpha')
 
 //
 //	FIGHT MODES
@@ -67,8 +67,8 @@ const int NPC_SNEAK_WEAPON = 2 + 128;
 //
 //	ARMOR FLAGS
 //
-const int WEAR_TORSO = 1; // Oberkoerper ( Brustpanzer )
-const int WEAR_HEAD = 2; // Kopf ( Helm )
+const int WEAR_TORSO = 1; // Upper body (chest armor)
+const int WEAR_HEAD = 2; // Head ( Helmet )
 const int WEAR_EFFECT = 16;
 
 //
@@ -85,7 +85,7 @@ const int INV_MISC = 8;
 const int INV_CAT_MAX = 9;
 
 //
-//	INVENTORY CAPACITIES // --- werden vom Programm ignoriert - INV ist unendlich groß! ---
+//	INVENTORY CAPACITIES // --- are ignored by the program - INV is infinitely large! ---
 //
 const int INV_MAX_WEAPONS = 6;
 const int INV_MAX_ARMORS = 2;
@@ -107,67 +107,67 @@ const int ITM_TEXT_MAX = 6;
 //
 
 // categories (mainflag)
-const int ITEM_KAT_NONE = 1 << 0; // Sonstiges
-const int ITEM_KAT_NF = 1 << 1; // Nahkampfwaffen
-const int ITEM_KAT_FF = 1 << 2; // Fernkampfwaffen
-const int ITEM_KAT_MUN = 1 << 3; // Munition (MULTI)
-const int ITEM_KAT_ARMOR = 1 << 4; // Ruestungen
-const int ITEM_KAT_FOOD = 1 << 5; // Nahrungsmittel (MULTI)
-const int ITEM_KAT_DOCS = 1 << 6; // Dokumente
-const int ITEM_KAT_POTIONS = 1 << 7; // Traenke
-const int ITEM_KAT_LIGHT = 1 << 8; // Lichtquellen
-const int ITEM_KAT_RUNE = 1 << 9; // Runen/Scrolls
-const int ITEM_KAT_MAGIC = 1 << 31; // Ringe/Amulette/Guertel
+const int ITEM_KAT_NONE = 1 << 0; // other
+const int ITEM_KAT_NF = 1 << 1; // melee weapons
+const int ITEM_KAT_FF = 1 << 2; // ranged weapons
+const int ITEM_KAT_MUN = 1 << 3; // ammo (MULTI)
+const int ITEM_KAT_ARMOR = 1 << 4; // armor
+const int ITEM_KAT_FOOD = 1 << 5; // food (MULTI)
+const int ITEM_KAT_DOCS = 1 << 6; // documents
+const int ITEM_KAT_POTIONS = 1 << 7; // potions
+const int ITEM_KAT_LIGHT = 1 << 8; // light sources
+const int ITEM_KAT_RUNE = 1 << 9; // runes/scrolls
+const int ITEM_KAT_MAGIC = 1 << 31; // Rings/Amulets/Belts
 const int ITEM_KAT_KEYS = ITEM_KAT_NONE;
 // weapon type (flags)
 const int ITEM_DAG = 1 << 13; // (OBSOLETE!)
-const int ITEM_SWD = 1 << 14; // Schwert
-const int ITEM_AXE = 1 << 15; // Axt
-const int ITEM_2HD_SWD = 1 << 16; // Zweihaender
-const int ITEM_2HD_AXE = 1 << 17; // Streitaxt
+const int ITEM_SWD = 1 << 14; // sword
+const int ITEM_AXE = 1 << 15; // axe
+const int ITEM_2HD_SWD = 1 << 16; // two-handed
+const int ITEM_2HD_AXE = 1 << 17; // battle axe
 const int ITEM_SHIELD = 1 << 18; // (OBSOLETE!)
-const int ITEM_BOW = 1 << 19; // Bogen
-const int ITEM_CROSSBOW = 1 << 20; // Armbrust
+const int ITEM_BOW = 1 << 19; // bow
+const int ITEM_CROSSBOW = 1 << 20; // crossbow
 // magic type (flags)
-const int ITEM_RING = 1 << 11; // Ring
-const int ITEM_AMULET = 1 << 22; // Amulett
-const int ITEM_BELT = 1 << 24; // Guertel
+const int ITEM_RING = 1 << 11;
+const int ITEM_AMULET = 1 << 22;
+const int ITEM_BELT = 1 << 24;
 // attributes (flags)
 const int ITEM_DROPPED = 1 << 10; // (INTERNAL!)
-const int ITEM_MISSION = 1 << 12; // Missionsgegenstand
-const int ITEM_MULTI = 1 << 21; // Stapelbar
+const int ITEM_MISSION = 1 << 12; // quest item
+const int ITEM_MULTI = 1 << 21; // Stackable
 const int ITEM_NFOCUS = 1 << 23; // (INTERNAL!)
-const int ITEM_CREATEAMMO = 1 << 25; // Erzeugt Munition selbst (magisch)
-const int ITEM_NSPLIT = 1 << 26; // Kein Split-Item (Waffe als Interact-Item!)
+const int ITEM_CREATEAMMO = 1 << 25; // Generates ammunition itself (magically)
+const int ITEM_NSPLIT = 1 << 26; // No split item (weapon as interact item!)
 const int ITEM_DRINK = 1 << 27; // (OBSOLETE!)
-const int ITEM_TORCH = 1 << 28; // Fackel
+const int ITEM_TORCH = 1 << 28;
 const int ITEM_THROW = 1 << 29; // (OBSOLETE!)
 const int ITEM_ACTIVE = 1 << 30; // (INTERNAL!)
 
 //
 //	DAMAGE TYPES v2.0
 //
-const int DAM_INVALID = 0; // 0 - 0x00 - nur der Vollstandigkeit und Transparenz wegen hier definiert ( _NICHT_ verwenden )
-const int DAM_BARRIER = 1; // 1 - 0x01 - nur der Vollstandigkeit und Transparenz wegen hier definiert ( _NICHT_ verwenden )
-const int DAM_BLUNT = DAM_BARRIER << 1; // 2 - 0x02 - blunt ist das bit links von barrier
-const int DAM_EDGE = DAM_BLUNT << 1; // 4 - 0x04 - edge ist das bit links von blunt
-const int DAM_FIRE = DAM_EDGE << 1; // 8 - 0x08 - fire ist das bit links von edge
-const int DAM_FLY = DAM_FIRE << 1; // 16 - 0x10 - fly ist das bit links von fire
+const int DAM_INVALID = 0; // 0 - 0x00 - defined here for the sake of completeness and transparency only (do NOT use)
+const int DAM_BARRIER = 1; // 1 - 0x01 - defined here for the sake of completeness and transparency only (do NOT use)
+const int DAM_BLUNT = DAM_BARRIER << 1; // 2 - 0x02 - blunt is the bit to the left of barrier
+const int DAM_EDGE = DAM_BLUNT << 1; // 4 - 0x04 - edge is the bit to the left of blunt
+const int DAM_FIRE = DAM_EDGE << 1; // 8 - 0x08 - fire is the bit to the left of edge
+const int DAM_FLY = DAM_FIRE << 1; // 16 - 0x10 - fly is the bit to the left of fire
 const int DAM_MAGIC = DAM_FLY << 1; // 32 - 0x20 - magic ist das bit links von fly
-const int DAM_POINT = DAM_MAGIC << 1; // 64 - 0x40 - point ist das bit links von magic
-const int DAM_FALL = DAM_POINT << 1; // 128 - 0x80 - nur der Vollstandigkeit und Transparenz wegen hier definiert ( _NICHT_ verwenden )
+const int DAM_POINT = DAM_MAGIC << 1; // 64 - 0x40 - magic is the bit to the left of fly
+const int DAM_FALL = DAM_POINT << 1; // 128 - 0x80 - defined here for the sake of completeness and transparency only (do NOT use)
 
 //
 //	DAMAGE TYPE ARRAY INDICES ( !!! DAM_XXX = 1 << DAM_INDEX_XXX !!! )
 //
-const int DAM_INDEX_BARRIER = 0; // nur der Vollstandigkeit und Transparenz wegen hier definiert ( _NICHT_ verwenden )
+const int DAM_INDEX_BARRIER = 0; // defined here for the sake of completeness and transparency only (do NOT use)
 const int DAM_INDEX_BLUNT = DAM_INDEX_BARRIER + 1;
 const int DAM_INDEX_EDGE = DAM_INDEX_BLUNT + 1;
 const int DAM_INDEX_FIRE = DAM_INDEX_EDGE + 1;
 const int DAM_INDEX_FLY = DAM_INDEX_FIRE + 1;
 const int DAM_INDEX_MAGIC = DAM_INDEX_FLY + 1;
 const int DAM_INDEX_POINT = DAM_INDEX_MAGIC + 1;
-const int DAM_INDEX_FALL = DAM_INDEX_POINT + 1; // nur der Vollstandigkeit und Transparenz wegen hier definiert ( _NICHT_ verwenden )
+const int DAM_INDEX_FALL = DAM_INDEX_POINT + 1; //  - defined here for the sake of completeness and transparency only (do NOT use)
 const int DAM_INDEX_MAX = DAM_INDEX_FALL + 1;
 
 //
@@ -176,7 +176,7 @@ const int DAM_INDEX_MAX = DAM_INDEX_FALL + 1;
 const int NPC_ATTACK_FINISH_DISTANCE = 180;
 const int NPC_BURN_TICKS_PER_DAMAGE_POINT = 1000; // Default 1000
 const int NPC_BURN_DAMAGE_POINTS_PER_INTERVALL = 50; // Default 10
-const int DAM_CRITICAL_MULTIPLIER = 2; // Obsolet, da Treffer-%-CHance CriticalHit ersetzt hat
+const int DAM_CRITICAL_MULTIPLIER = 2; // Obsolete, as hit % chance has replaced Critical Hit.
 
 const int BLOOD_SIZE_DIVISOR = 1000;
 const int BLOOD_DAMAGE_MAX = 200;
@@ -189,8 +189,8 @@ const int NPC_DAM_DIVE_TIME = 100;
 
 const int IMMUNE = - 1;
 
-// ------ Wie weit werden Npcs im Kampf voneinander weggeschoben -------
-// ------ Faktor zu W-Distanz (BASE + Waffe, bzw. BASE + FIST) ------
+// ------ How far are NPCs pushed away from each other in combat? -------
+// ------ Factor for W distance (BASE + weapon, or BASE + FIST) ------
 const float NPC_COLLISION_CORRECTION_SCALER = 0.75; // Default = 0.75
 
 //
@@ -240,7 +240,7 @@ const int PERC_ASSESSTHEFT = 17;
 const int PERC_ASSESSCALL = 18;
 const int PERC_ASSESSTALK = 19;
 const int PERC_ASSESSGIVENITEM = 20;
-const int PERC_ASSESSFAKEGUILD = 21; // wird gesendet, sobald der SC sich verwandelt
+const int PERC_ASSESSFAKEGUILD = 21; // is sent as soon as hero transforms
 const int PERC_MOVEMOB = 22;
 const int PERC_MOVENPC = 23;
 const int PERC_DRAWWEAPON = 24;
@@ -248,8 +248,8 @@ const int PERC_OBSERVESUSPECT = 25;
 const int PERC_NPCCOMMAND = 26;
 const int PERC_ASSESSMAGIC = 27;
 const int PERC_ASSESSSTOPMAGIC = 28;
-const int PERC_ASSESSCASTER = 29; // wird beim 1. investierten Manapunkt gesendet
-const int PERC_ASSESSSURPRISE = 30; // wird beim Zurückverwandeln gesendet
+const int PERC_ASSESSCASTER = 29; // is sent when the first mana point is invested
+const int PERC_ASSESSSURPRISE = 30; // is sent during conversion back
 const int PERC_ASSESSENTERROOM = 31;
 const int PERC_ASSESSUSEMOB = 32;
 
@@ -276,10 +276,10 @@ const int INF_UNKNOWN = 2;
 //
 //	MISSION STATUS
 //
-const int LOG_RUNNING = 1; // Mission läuft gerade
-const int LOG_SUCCESS = 2; // Mission erfolgreich beendet
-const int LOG_FAILED = 3; // Mission wurde abgebrochen
-const int LOG_OBSOLETE = 4; // Mission ist hinfaellig
+const int LOG_RUNNING = 1; // Mission currently in progress
+const int LOG_SUCCESS = 2; // Mission successfully completed
+const int LOG_FAILED = 3; // Mission aborted
+const int LOG_OBSOLETE = 4; // Mission is obsolete (updated?)
 
 //
 //	ATTITUDES
@@ -293,26 +293,26 @@ const int ATT_HOSTILE = 0;
 // 		Gilden
 // ******************
 
-const int GIL_NONE = 0; // (keine)
-const int GIL_HUMAN = 1; // Special Guild -> To set Constants for ALL Human Guilds --> wird verwendet in Species.d
+const int GIL_NONE = 0; // (no guild)
+const int GIL_HUMAN = 1; // Special Guild -> To set Constants for ALL Human Guilds --> used in Species.d
 const int GIL_PAL = 1; // Paladin
-const int GIL_MIL = 2; // Miliz
-const int GIL_VLK = 3; // Bürger
-const int GIL_KDF = 4; // Magier
-const int GIL_NOV = 5; // Magier Novize
-const int GIL_DJG = 6; // Drachenjäger
-const int GIL_SLD = 7; // Söldner
-const int GIL_BAU = 8; // Bauer
+const int GIL_MIL = 2; // Militia
+const int GIL_VLK = 3; // Citizen
+const int GIL_KDF = 4; // Mage
+const int GIL_NOV = 5; // Novice
+const int GIL_DJG = 6; // Dragon Hunter
+const int GIL_SLD = 7; // Mercenary
+const int GIL_BAU = 8; // Farmer
 const int GIL_BDT = 9; // Bandit
-const int GIL_STRF = 10; // Prisoner, Sträfling
-const int GIL_DMT = 11; // Dementoren
-const int GIL_OUT = 12; // Outlander (z.B. kleine Bauernhöfe)
+const int GIL_STRF = 10; // Prisoner, convict
+const int GIL_DMT = 11; // Seeker
+const int GIL_OUT = 12; // Outlander (e.g., small farms)
 
-const int GIL_PIR = 13; // Pirat
+const int GIL_PIR = 13; // Pirate
 const int GIL_KDW = 14; // KDW
-const int GIL_EMPTY_D = 15; // NICHT VERWENDEN!
+const int GIL_EMPTY_D = 15; // DO NOT USE!
 // -----------------------------------------------
-const int GIL_PUBLIC = 15; // für öffentliche Portalräume
+const int GIL_PUBLIC = 15; // for public portal rooms
 // -----------------------------------------------
 
 const int GIL_SEPERATOR_HUM = 16;
@@ -326,7 +326,7 @@ const int GIL_SCAVENGER = 22; // (bei Bedarf) Scavenger / Evil Scavenger /OrcBit
 const int GIL_GIANT_RAT = 23;
 const int GIL_GIANT_BUG = 24;
 const int GIL_BLOODFLY = 25;
-const int GIL_WARAN = 26; // Waren / Feuerwaran
+const int GIL_WARAN = 26; // Lizard / Fire Lizard
 const int GIL_WOLF = 27; // Wolf / Warg
 const int GIL_SUMMONED_WOLF = 28;
 const int GIL_MINECRAWLER = 29; // Minecrawler / Minecrawler Warrior
@@ -345,10 +345,10 @@ const int GIL_ICEGOLEM = 41;
 const int GIL_SUMMONED_GOLEM = 42;
 const int GIL_DEMON = 43;
 const int GIL_SUMMONED_DEMON = 44;
-const int GIL_TROLL = 45; // Troll / Schwarzer Troll
-const int GIL_SWAMPSHARK = 46; // (bei Bedarf)
-const int GIL_DRAGON = 47; // Feuerdrache / Eisdrache / Felsdrache / Sumpfdrache / Untoter Drache
-const int GIL_MOLERAT = 48; // Molerat
+const int GIL_TROLL = 45; // Troll / Black Troll
+const int GIL_SWAMPSHARK = 46; // (if necessary)
+const int GIL_DRAGON = 47; // Fire Dragon / Ice Dragon / Rock Dragon / Swamp Dragon / Undead Dragon
+const int GIL_MOLERAT = 48;
 
 const int GIL_ALLIGATOR = 49;
 const int GIL_SWAMPGOLEM = 50;
@@ -360,10 +360,10 @@ const int GIL_SummonedZombie = 55;
 const int GIL_EMPTY_B = 56;
 const int GIL_EMPTY_C = 57;
 
-const int GIL_SEPERATOR_ORC = 58; // (ehem. 37)
+const int GIL_SEPERATOR_ORC = 58; // (formerly 37)
 
-const int GIL_ORC = 59; // Ork-Krieger / Ork-Shamane / Ork-Elite
-const int GIL_FRIENDLY_ORC = 60; // Ork-Sklave / Ur-Shak
+const int GIL_ORC = 59; // Orc Warrior / Orc Shaman / Orc Elite
+const int GIL_FRIENDLY_ORC = 60; // Orc Slave / Ur-Shak
 const int GIL_UNDEADORC = 61;
 const int GIL_DRACONIAN = 62;
 
@@ -371,7 +371,7 @@ const int GIL_EMPTY_X = 63;
 const int GIL_EMPTY_Y = 64;
 const int GIL_EMPTY_Z = 65;
 
-const int GIL_MAX = 66; // (ehem. 42)
+const int GIL_MAX = 66; // (formerly 42)
 
 //
 //	GUILDS DESCRIPTION
@@ -401,14 +401,14 @@ class C_GILVALUES
 	var int FIGHT_RANGE_1HA [GIL_MAX];
 	var int FIGHT_RANGE_2HS [GIL_MAX];
 	var int FIGHT_RANGE_2HA [GIL_MAX];
-	var int FALLDOWN_HEIGHT [GIL_MAX]; // Wie tief Fallen ohne Schaden ?
-	var int FALLDOWN_DAMAGE [GIL_MAX]; // Schaden für jeden weiteren angefangenen Meter.
-	var int BLOOD_DISABLED [GIL_MAX]; // DEFAULT = 0; Blut ganz ausschalten (z.B. bei Sekletten) ?
-	var int BLOOD_MAX_DISTANCE [GIL_MAX]; // DEFAULT = 1000; Wie weit spritzt das Blut (in cm) ?
-	var int BLOOD_AMOUNT [GIL_MAX]; // DEFAULT = 10; Wie viel Blut ?
-	var int BLOOD_FLOW [GIL_MAX]; // DEFAULT = 0; Soll es sich langsam ausbreiten ?
-	var string BLOOD_EMITTER [GIL_MAX]; // DEFAULT = "PFX_BLOOD"; Welcher Partikel-Emitter ?
-	var string BLOOD_TEXTURE [GIL_MAX]; // DEFAULT = "ZBLOODSPLAT2.TGA"; Welche Textur ?
+	var int FALLDOWN_HEIGHT [GIL_MAX]; // How deep can you fall without hurting yourself?
+	var int FALLDOWN_DAMAGE [GIL_MAX]; // Damage for each additional meter started.
+	var int BLOOD_DISABLED [GIL_MAX]; // DEFAULT = 0; Turn off blood completely (e.g., for skeletons)?
+	var int BLOOD_MAX_DISTANCE [GIL_MAX]; // DEFAULT = 1000; How far does the blood spray (in cm)?
+	var int BLOOD_AMOUNT [GIL_MAX]; // DEFAULT = 10; How much blood?
+	var int BLOOD_FLOW [GIL_MAX]; // DEFAULT = 0; Should it spread slowly?
+	var string BLOOD_EMITTER [GIL_MAX]; // DEFAULT = "PFX_BLOOD"; Which particle emitter?
+	var string BLOOD_TEXTURE [GIL_MAX]; // DEFAULT = "ZBLOODSPLAT2.TGA"; Which texture?
 	var int TURN_SPEED [GIL_MAX]; // DEFAULT = 150;
 };
 
@@ -445,12 +445,12 @@ const int LOG_NOTE = 1;
 const int TIME_INFINITE = - 1000000 / 1000;
 const int NPC_VOICE_VARIATION_MAX = 10;
 
-const float TRADE_VALUE_MULTIPLIER = 0.15; // DEFAULT = 0.3 Faktor auf den Wert eines Items, den ein Haendler bezahlt
-const string TRADE_CURRENCY_INSTANCE = "ITMI_GOLD"; // DEFAULT = "ITMI_GOLD" Name der Instanz des Waehrungs-Items
+const float TRADE_VALUE_MULTIPLIER = 0.15; // DEFAULT = 0.3 Factor affecting the value of an item paid by a dealer
+const string TRADE_CURRENCY_INSTANCE = "ITMI_GOLD"; // DEFAULT = "ITMI_GOLD" Name of the instance of the currency item
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-//	Spells: Kategorie-Konstanten
+//	Spells: Category constants
 //
 
 const int SPELL_GOOD = 0;
@@ -459,20 +459,20 @@ const int SPELL_BAD = 2;
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-//	Spells: Steuerungs-Konstanten
+//	Spells: Control constants
 //
 
-const int SPL_DONTINVEST = 0; // Es können keine weiteren Manapunkte investiert werden. Erst durch CTRL loslassen geht der Spell ab
-const int SPL_RECEIVEINVEST = 1; // Wirkung durchgeführt, es können weitere Invest kommen, zB.bei Heal nach jedem Pöppel
-const int SPL_SENDCAST = 2; // Starte den Zauber-Effekt (wie CTRL loslassen), automatischer Abbruch
-const int SPL_SENDSTOP = 3; // Beende Zauber ohne Effekt
-const int SPL_NEXTLEVEL = 4; // setze den Spruch auf den nächsten Level
+const int SPL_DONTINVEST = 0; // No further mana points can be invested. The spell is only cast when you release CTRL.
+const int SPL_RECEIVEINVEST = 1; // Effect performed, further investments may be made, e.g. in Heal after each pawn.
+const int SPL_SENDCAST = 2; // Start the magic effect (like releasing CTRL), automatic cancellation
+const int SPL_SENDSTOP = 3; // End spell without effect
+const int SPL_NEXTLEVEL = 4; // take the spell to the next level
 const int SPL_STATUS_CANINVEST_NO_MANADEC = 8;
-const int SPL_FORCEINVEST = 1 << 16; // zieht auf jeden Fall einen Manapunkt ab, egal ob timePerMana abgelaufen ist, oder nicht (sinnvoll für Investierzauber, die zumindest einen Manapunkt abziehen sollen, obwohl timePerMana noch nicht abgelaufen ist.
+const int SPL_FORCEINVEST = 1 << 16; // Always deducts one mana point, regardless of whether timePerMana has expired or not (useful for investment spells that should deduct at least one mana point even though timePerMana has not yet expired)
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-//	Spells: Target-Konstanten
+//	Spells: Target constants
 //
 
 const int TARGET_COLLECT_NONE = 0; // target will be set by effect (range, azi, elev)
@@ -493,10 +493,10 @@ const int TARGET_TYPE_UNDEAD = 32;
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-//	Spells: ID-Konstanten
+//	Spells: ID constants
 //
 
-// Paladin-Runen
+// Paladin runes
 const int SPL_PalLight = 0;
 const int SPL_PalLightHeal = 1;
 const int SPL_PalHolyBolt = 2;
@@ -505,7 +505,7 @@ const int SPL_PalRepelEvil = 4;
 const int SPL_PalFullHeal = 5;
 const int SPL_PalDestroyEvil = 6;
 
-// Teleport-Runen
+// Teleport runes
 const int SPL_PalTeleportSecret = 7;
 const int SPL_TeleportSeaport = 8;
 const int SPL_TeleportMonastery = 9;
@@ -518,29 +518,29 @@ const int SPL_TeleportOWDemonTower = 15;
 const int SPL_TeleportTaverne = 16;
 const int SPL_Teleport_3 = 17;
 
-// Kreis 1
+// Circle 1
 const int SPL_Light = 18;
 const int SPL_Firebolt = 19;
 
-// Kreis 2
+// Circle 2
 const int SPL_Icebolt = 20;
 
-// Kreis 1
+// Circle 1
 const int SPL_LightHeal = 21; // SPL_Heal Instant!
 const int SPL_SummonGoblinSkeleton = 22;
 
-// Kreis 2
+// Circle 2
 const int SPL_InstantFireball = 23;
 
-// Kreis 1
+// Circle 1
 const int SPL_Zap = 24; // ###UNCONSCIOUS###
 
-// Kreis 2
+// Circle 2
 const int SPL_SummonWolf = 25;
 const int SPL_WindFist = 26; // ###UNCONSCIOUS###
 const int SPL_Sleep = 27;
 
-// Kreis 3
+// Circle 3
 const int SPL_MediumHeal = 28;
 const int SPL_LightningFlash = 29;
 const int SPL_ChargeFireball = 30;
@@ -548,26 +548,26 @@ const int SPL_SummonSkeleton = 31;
 const int SPL_Fear = 32;
 const int SPL_IceCube = 33;
 
-// Kreis 4
+// Circle 4
 const int SPL_ChargeZap = 34;
 const int SPL_SummonGolem = 35;
 const int SPL_DestroyUndead = 36;
 const int SPL_Pyrokinesis = 37;
 
-// Kreis 5
+// Circle 5
 const int SPL_Firestorm = 38;
 const int SPL_IceWave = 39;
 const int SPL_SummonDemon = 40;
 const int SPL_FullHeal = 41;
 
-// Kreis 6
+// Circle 6
 const int SPL_Firerain = 42;
 const int SPL_BreathOfDeath = 43;
 const int SPL_MassDeath = 44;
 const int SPL_ArmyOfDarkness = 45;
 const int SPL_Shrink = 46;
 
-// Scrolls
+// Circle
 const int SPL_TrfSheep = 47;
 const int SPL_TrfScavenger = 48;
 const int SPL_TrfGiantRat = 49;
@@ -582,7 +582,7 @@ const int SPL_TrfShadowbeast = 57;
 const int SPL_TrfDragonSnapper = 58;
 const int SPL_Charm = 59; // MAX_SPELL (Gothic)
 
-// Kreis 5
+// Circle 5
 const int SPL_MasterOfDisaster = 60;
 
 // ???
@@ -596,7 +596,7 @@ const int SPL_Reserved_67 = 67; // SPL_H
 const int SPL_Reserved_68 = 68; // MAX_SPELL (Gothic2)
 const int SPL_Reserved_69 = 69;
 
-// Magick (Wasser)
+// Magic (water)
 const int SPL_Thunderstorm = 70;
 const int SPL_Whirlwind = 71;
 const int SPL_WaterFist = 72;
@@ -608,7 +608,7 @@ const int SPL_Reserved_77 = 77;
 const int SPL_Reserved_78 = 78;
 const int SPL_Reserved_79 = 79;
 
-// Magick (Maya)
+// Magic (Maya)
 const int SPL_Plague = 80;
 const int SPL_Swarm = 81;
 const int SPL_GreenTentacle = 82;
@@ -636,12 +636,12 @@ const int MAX_SPELL = 100; // 59 (Gothic), 68 (Gothic2), 100 (G2Addon)
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-//	Spells: Fx-/Spell-Klassennamen (Array)
+//	Spells: Fx/Spell class names (array)
 //
 
 const string spellFxInstanceNames[MAX_SPELL] =
 {
-	// Paladin-Runen
+	// Paladin runes
 	"PalLight", // 0 SPL_PalLight
 	"PalHeal", // 1 SPL_PalLightHeal
 	"PalHolyBolt", // 2 SPL_PalHolyBolt
@@ -650,7 +650,7 @@ const string spellFxInstanceNames[MAX_SPELL] =
 	"PalHeal", // 5 SPL_PalFullHeal
 	"PalDestroyEvil", // 6 SPL_PalDestroyEvil
 
-	// Teleport-Runen
+	// Teleport runes
 	"Teleport", // 7 SPL_PalTeleportSecret
 	"Teleport", // 8 SPL_TeleportSeaport
 	"Teleport", // 9 SPL_TeleportMonastery
@@ -663,29 +663,29 @@ const string spellFxInstanceNames[MAX_SPELL] =
 	"Teleport", // 16 SPL_TeleportTaverne
 	"Teleport", // 17 SPL_Teleport_3
 
-	// Kreis 1
+	// Circle 1
 	"Light", // 18 SPL_Light
 	"Firebolt", // 19 SPL_Firebolt
 
-	// Kreis 2
+	// Circle 2
 	"Icebolt", // 20 SPL_Icebolt
 
-	// Kreis 1
+	// Circle 1
 	"Heal", // 21 SPL_LightHeal
 	"SummonGoblinSkeleton", // 22 SPL_SummonGoblinSkeleton
 
-	// Kreis 2
+	// Circle 2
 	"InstantFireball", // 23 SPL_InstantFireball
 
-	// Kreis 1
+	// Circle 1
 	"Zap", // 24 SPL_Zap
 
-	// Kreis 2
+	// Circle 2
 	"SummonWolf", // 25 SPL_SummonWolf
 	"WindFist", // 26 SPL_WindFist
 	"Sleep", // 27 SPL_Sleep
 
-	// Kreis 3
+	// Circle 3
 	"Heal", // 28 SPL_MediumHeal
 	"LightningFlash", // 29 SPL_LightningFlash
 	"ChargeFireball", // 30 SPL_ChargeFireball
@@ -693,19 +693,19 @@ const string spellFxInstanceNames[MAX_SPELL] =
 	"Fear", // 32 SPL_Fear
 	"Icecube", // 33 SPL_IceCube
 
-	// Kreis 4
+	// Circle 4
 	"ChargeZap", // 34 SPL_ChargeZap
 	"SummonGolem", // 53 SPL_SummonGolem
 	"DestroyUndead", // 36 SPL_DestroyUndead
 	"Pyrokinesis", // 37 SPL_Pyrokinesis
 
-	// Kreis 5
+	// Circle 5
 	"Firestorm", // 38 SPL_Firestorm
 	"Icewave", // 39 SPL_IceWave
 	"SummonDemon", // 40 SPL_SummonDemon
 	"Heal", // 41 SPL_FullHeal
 
-	// Kreis 6
+	// Circle 6
 	"Firerain", // 42 SPL_Firerain
 	"BreathOfDeath", // 43 SPL_BreathOfDeath
 	"MassDeath", // 44 SPL_MassDeath
@@ -727,7 +727,7 @@ const string spellFxInstanceNames[MAX_SPELL] =
 	"Transform", // 58 SPL_TrfDragonSnapper
 	"Charm", // 59 SPL_Charm
 
-	// Kreis 5
+	// Circle 5
 	"MasterOfDisaster", // 60 SPL_MasterOfDisaster
 
 	// ???
@@ -741,7 +741,7 @@ const string spellFxInstanceNames[MAX_SPELL] =
 	"Light", // 68 SPL_Reserved_68
 	"Light", // 69 SPL_Reserved_69
 
-	// Magick (Wasser)
+	// Magic (water)
 	"Thunderstorm", // 70 SPL_Thunderstorm
 	"Whirlwind", // 71 SPL_Whirlwind
 	"Waterfist", // 72 SPL_WaterFist
@@ -753,7 +753,7 @@ const string spellFxInstanceNames[MAX_SPELL] =
 	"Light", // 78 SPL_Reserved_78
 	"Light", // 79 SPL_Reserved_79
 
-	// Magick (Maya)
+	// Magic (Maya)
 	"Fear", // 80 SPL_Plague
 	"Swarm", // 81 SPL_Swarm
 	"Greententacle", // 82 SPL_GreenTentacle
@@ -780,12 +780,12 @@ const string spellFxInstanceNames[MAX_SPELL] =
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-//	Spells: Animationskürzel (Array)
+//	Spells: Animation shortcuts (array)
 //
 
 const string spellFxAniLetters[MAX_SPELL] =
 {
-	// Paladin-Runen
+	// Paladin runes
 	"SLE", // 0 SPL_PalLight
 	"HEA", // 1 SPL_PalLightHeal
 	"FBT", // 2 SPL_PalHolyBolt
@@ -794,7 +794,7 @@ const string spellFxAniLetters[MAX_SPELL] =
 	"HEA", // 5 SPL_PalFullHeal
 	"FIB", // 6 SPL_PalDestroyEvil
 
-	// Teleport-Runen
+	// Teleport runes
 	"HEA", // 7 SPL_PalTeleportSecret
 	"HEA", // 8 SPL_TeleportSeaport
 	"HEA", // 9 SPL_TeleportMonastery
@@ -807,29 +807,29 @@ const string spellFxAniLetters[MAX_SPELL] =
 	"HEA", // 16 SPL_TeleportTaverne
 	"HEA", // 17 SPL_Teleport_3
 
-	// Kreis 1
+	// Circle 1
 	"SLE", // 18 SPL_Light
 	"FBT", // 19 SPL_Firebolt
 
-	// Kreis 2
+	// Circle 2
 	"FBT", // 20 SPL_Icebolt
 
-	// Kreis 1
+	// Circle 1
 	"HEA", // 21 SPL_LightHeal
 	"SUM", // 22 SPL_SummonGoblinSkeleton
 
-	// Kreis 2
+	// Circle 2
 	"FBT", // 23 SPL_InstantFireball
 
-	// Kreis 1
+	// Circle 1
 	"FBT", // 24 SPL_Zap
 
-	// Kreis 2
+	// Circle 2
 	"SUM", // 25 SPL_SummonWolf
 	"WND", // 26 SPL_WindFist
 	"SLE", // 27 SPL_Sleep
 
-	// Kreis 3
+	// Circle 3
 	"HEA", // 28 SPL_MediumHeal
 	"WND", // 29 SPL_LightningFlash
 	"FIB", // 30 SPL_ChargeFireball
@@ -838,18 +838,18 @@ const string spellFxAniLetters[MAX_SPELL] =
 	"FRZ", // 33 SPL_IceCube
 	"FIB", // 34 SPL_ChargeZap
 
-	// Kreis 4
+	// Circle 4
 	"SUM", // 35 SPL_SummonGolem
 	"FIB", // 36 SPL_DestroyUndead
 	"FIB", // 37 SPL_Pyrokinesis
 
-	// Kreis 5
+	// Circle 5
 	"FIB", // 38 SPL_Firestorm
 	"FEA", // 39 SPL_IceWave
 	"SUM", // 40 SPL_SummonDemon
 	"HEA", // 41 SPL_FullHeal
 
-	// Kreis 6
+	// Circle 6
 	"FEA", // 42 SPL_Firerain
 	"FIB", // 43 SPL_BreathOfDeath
 	"MSD", // 44 SPL_MassDeath
@@ -871,7 +871,7 @@ const string spellFxAniLetters[MAX_SPELL] =
 	"TRF", // 58 SPL_TrfDragonSnapper
 	"FIB", // 59 SPL_Charm
 
-	// Kreis 5
+	// Circle 5
 	"FIB", // 60 SPL_MasterOfDisaster
 
 	// ???
@@ -885,7 +885,7 @@ const string spellFxAniLetters[MAX_SPELL] =
 	"XXX", // 68 SPL_Reserved_68
 	"XXX", // 69 SPL_Reserved_69
 
-	// Magick (Wasser)
+	// Magic (water)
 	"STM", // 70 SPL_Thunderstorm
 	"WHI", // 71 SPL_Whirlwind
 	"WND", // 72 SPL_WaterFist
@@ -897,7 +897,7 @@ const string spellFxAniLetters[MAX_SPELL] =
 	"XXX", // 78 SPL_Reserved_78
 	"XXX", // 79 SPL_Reserved_79
 
-	// Magick (Maya)
+	// Magic (Maya)
 	"FBT", // 80 SPL_Plague
 	"FBT", // 81 SPL_Swarm
 	"FRZ", // 82 SPL_GreenTentacle
@@ -923,7 +923,7 @@ const string spellFxAniLetters[MAX_SPELL] =
 };
 
 // *******
-// Talente
+// Talents
 // *******
 
 const int NPC_TALENT_UNKNOWN = 0;
@@ -934,19 +934,19 @@ const int NPC_TALENT_2H = 2;
 const int NPC_TALENT_BOW = 3;
 const int NPC_TALENT_CROSSBOW = 4;
 
-const int NPC_TALENT_PICKLOCK = 5; // wird jetzt per DEX geregelt
-// const int NPC_TALENT_PICKPOCKET = 6; // altes Pickpocket aus Gothic 1 - NICHT benutzen! Bleibt als Relikt im Code
+const int NPC_TALENT_PICKLOCK = 5; // is now regulated by DEX
+// const int NPC_TALENT_PICKPOCKET = 6; // old pickpocket from Gothic 1 - DO NOT use! Remains as a relic in the code.
 
 // Magiekreis
 const int NPC_TALENT_MAGE = 7;
 
 // Special-Talents
 const int NPC_TALENT_SNEAK = 8;
-const int NPC_TALENT_REGENERATE = 9; // ??? was ist davon drin?
-const int NPC_TALENT_FIREMASTER = 10; // ??? was ist davon drin?
-const int NPC_TALENT_ACROBAT = 11; // --> Anis ändern!
+const int NPC_TALENT_REGENERATE = 9; // ??? what's in it?
+const int NPC_TALENT_FIREMASTER = 10; // ??? what's in it?
+const int NPC_TALENT_ACROBAT = 11; // --> changes animations!
 
-// NEW Talents // werden komplett auf Scriptebene umgesetzt - Programm braucht sie nur für Ausgabe im Characterscreen
+// NEW Talents // are implemented entirely at the script level - the program only needs them for output in the character screen
 const int NPC_TALENT_PICKPOCKET = 12;
 const int NPC_TALENT_SMITH = 13;
 const int NPC_TALENT_RUNES = 14;
@@ -959,16 +959,16 @@ const int NPC_TALENT_C = 19;
 const int NPC_TALENT_D = 20;
 const int NPC_TALENT_E = 21;
 
-const int NPC_TALENT_MAX = 22; // ehem. 12
+const int NPC_TALENT_MAX = 22; // formerly 12
 
 // *************
-// Runen-Talente
+// Rune Talents
 // *************
 
-var int PLAYER_TALENT_RUNES[MAX_SPELL]; // Die SPL_ Konstanten werden hierfür als Kennung verwendet
+var int PLAYER_TALENT_RUNES[MAX_SPELL]; // SPL_ constants are used as identifiers for this purpose
 
 // *************
-// ForeignLanguage-TalentStufen
+// Foreign Language Talent Levels
 // *************
 
 const int LANGUAGE_1 = 0;
@@ -980,7 +980,7 @@ const int MAX_LANGUAGE = 3;
 var int PLAYER_TALENT_FOREIGNLANGUAGE[MAX_LANGUAGE];
 
 // *************
-// WispDetector-Talente
+// Wisp Talents
 // *************
 
 const int WISPSKILL_NF = 0;
@@ -1007,7 +1007,7 @@ const int WispSearch_NONE = 8;
 const int WispSearch_RUNE = 9;
 
 // ****************
-// Alchemie-Talente
+// Alchemy Talents
 // ****************
 
 const int POTION_Health_01 = 0;
@@ -1031,7 +1031,7 @@ const int MAX_POTION = 15;
 var int PLAYER_TALENT_ALCHEMY[MAX_POTION];
 
 // ***************
-// Schmied-Talente
+//  Blacksmithing skills
 // ***************
 
 const int WEAPON_Common = 0;
@@ -1055,7 +1055,7 @@ const int MAX_WEAPONS = 13;
 var int PLAYER_TALENT_SMITH[MAX_WEAPONS];
 
 // ********************
-// AnimalTrophy-Talente
+// Animal trophy talents
 // ********************
 
 const int TROPHY_Teeth = 0;
@@ -1078,7 +1078,7 @@ const int MAX_TROPHIES = 14;
 var int PLAYER_TALENT_TAKEANIMALTROPHY[MAX_TROPHIES];
 
 // ****************************************
-// Font-Konstanten der Engine (ausgelagert)
+// Engine font constants (outsourced)
 // ****************************************
 
 const string TEXT_FONT_20 = "Font_old_20_white.tga";
@@ -1087,14 +1087,14 @@ const string TEXT_FONT_DEFAULT = "Font_old_10_white.tga";
 const string TEXT_FONT_Inventory = "Font_old_10_white.tga";
 
 // ****************************************
-// wie lange bklleibt ein TExt (OU) stehen,
-// wenn kein wav da ist (msec/character)
+// How long does a text (OU) remain visible
+// if there is no wav (msec/character)
 // ****************************************
 
 const float VIEW_TIME_PER_CHAR = 550;
 
 // ****************************************
-//	LevelZen-Abfrage im B_Kapitelwechsel
+//	LevelZen query in B_chapter change
 // ****************************************
 
 const int NEWWORLD_ZEN = 1;
@@ -1103,7 +1103,7 @@ const int DRAGONISLAND_ZEN = 3;
 const int ADDONWORLD_ZEN = 4;
 
 // ****************************************
-//	Kamera für Inventory-Items
+//	Camera for inventory items
 // ****************************************
 
 const int INVCAM_ENTF_RING_STANDARD = 400;
