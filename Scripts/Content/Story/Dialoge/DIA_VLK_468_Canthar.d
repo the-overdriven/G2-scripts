@@ -84,13 +84,13 @@ func int DIA_Canthar_PersonalCRIMES_Condition()
 
 func void DIA_Canthar_PersonalCRIMES_Info()
 {
-	// ------ Spieler hat mich besiegt ------
+	// ------ Player defeated me ------
 	if (self.aivar[AIV_LastFightAgainstPlayer] == FIGHT_LOST)
 	{
 		AI_Output(self, other, "DIA_Canthar_PersonalCRIMES_09_00"); //Es war sehr dumm von dir, mich anzugreifen!
 	}
 
-	// ------ ich habe Spieler besiegt ODER keiner wurde besiegt ------
+	// ------ I defeated players OR no one was defeated ------
 	else // FIGHT_WON oder FIGHT_CANCEL
 	{
 		AI_Output(self, other, "DIA_Canthar_PersonalCRIMES_09_01"); //(spöttisch) Hast du gedacht, du könntest mich so leicht besiegen?
@@ -113,7 +113,7 @@ func void DIA_Canthar_PersonalCRIMES_Pay()
 	AI_Output(other, self, "DIA_Canthar_PersonalCRIMES_Pay_15_00"); //Hier hast du dein Gold - vergessen wir die Sache!
 	AI_Output(self, other, "DIA_Canthar_PersonalCRIMES_Pay_09_01"); //Sehr vernünftig von dir!
 
-	// ------ AIVARs resetten! ------
+	// ------ reset AIVAR ------
 	self.aivar[AIV_LastFightComment] = TRUE;
 
 	AI_StopProcessInfos(self);
@@ -151,7 +151,7 @@ func void DIA_Canthar_Hallo_Info()
 {
 	var C_Item itm; itm = Npc_GetEquippedArmor(other);
 
-	// ------ OHNE Rüstung ------
+	// ------ NO armor ------
 	if (Npc_HasEquippedArmor(other) == FALSE)
 	{
 		AI_Output(self, other, "DIA_Canthar_Hallo_09_00"); //Sieh an, wen haben wir denn da?
@@ -164,7 +164,7 @@ func void DIA_Canthar_Hallo_Info()
 		Canthar_GotMe = TRUE;
 	}
 
-	// ------ Bauernkleidung ------
+	// ------ farmers' clothing ------
 	else if ((Hlp_IsItem(itm, ItAr_Bau_L))
 	|| (Hlp_IsItem(itm, ItAr_Bau_M)))
 	{
@@ -175,7 +175,7 @@ func void DIA_Canthar_Hallo_Info()
 		Info_AddChoice(DIA_Canthar_Hallo, "Ich kann nicht klagen.", DIA_Canthar_Hallo_Bauer);
 	}
 
-	// ------ alle anderen Rüstungen (höchst unwahrscheinlich) ------
+	// ------ all other armor (highly unlikely) ------
 	else
 	{
 		AI_Output(self, other, "DIA_Canthar_Hallo_09_07"); //Was kann ich für dich tun?
@@ -345,13 +345,13 @@ func void DIA_Canthar_TRADE_Info()
 // ###########################################
 // ###########################################
 
-// 				In der Stadt
+// 				In the city
 
 // ###########################################
 // ###########################################
 /*
 -- >
-Aber ein Händler namnes Canthar hat das erzählt.
+But already met Canthar
 	*/
 
 ///////////////////////////////////////////////////////////////////////
@@ -564,12 +564,12 @@ func void DIA_Canthar_Success_Info()
 
 // ---------------------------------------------------------------------
 
-// Canthat hat seinen Marktstand OHNE Spieler Hilfe
+// Canthar has his market stall WITHOUT player assistance
 
 // ---------------------------------------------------------------------
 
 ///////////////////////////////////////////////////////////////////////
-//	Info Canthar hat den Stand
+//	Info Canthar has the stall
 ///////////////////////////////////////////////////////////////////////
 instance DIA_Canthar_Again(C_INFO)
 {
@@ -616,7 +616,7 @@ func void DIA_Canthar_Again_Info()
 };
 
 ///////////////////////////////////////////////////////////////////////
-//	Info Canthar bezahlen
+//	Info Pay Canthar
 ///////////////////////////////////////////////////////////////////////
 instance DIA_Canthar_Pay(C_INFO)
 {
@@ -679,7 +679,7 @@ func void DIA_Canthar_Pay_Wieviel()
 };
 
 ///////////////////////////////////////////////////////////////////////
-//	Info Canthar im Knast
+//	Info Canthar in jail
 ///////////////////////////////////////////////////////////////////////
 instance DIA_Canthar_CANTHARANGEPISST(C_INFO)
 {
@@ -693,7 +693,7 @@ instance DIA_Canthar_CANTHARANGEPISST(C_INFO)
 
 func int DIA_Canthar_CANTHARANGEPISST_Condition()
 {
-	if ((Canthar_Ausgeliefert == TRUE) // SC hat Canthar bei Andre verpfiffen!
+	if ((Canthar_Ausgeliefert == TRUE) // hero ratted Canthar out to Andre
 	&& (Npc_GetDistToWP(self, "NW_CITY_HABOUR_KASERN_RENGARU") <= 1000)
 	&& Npc_IsInState(self, ZS_Talk))
 	{
