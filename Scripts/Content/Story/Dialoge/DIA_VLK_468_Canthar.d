@@ -84,13 +84,13 @@ func int DIA_Canthar_PersonalCRIMES_Condition()
 
 func void DIA_Canthar_PersonalCRIMES_Info()
 {
-	// ------ Player defeated me ------
+	// ------ Player defeated Canthar ------
 	if (self.aivar[AIV_LastFightAgainstPlayer] == FIGHT_LOST)
 	{
 		AI_Output(self, other, "DIA_Canthar_PersonalCRIMES_09_00"); //Es war sehr dumm von dir, mich anzugreifen!
 	}
 
-	// ------ I defeated players OR no one was defeated ------
+	// ------ Player was defeated OR no one was defeated ------
 	else // FIGHT_WON oder FIGHT_CANCEL
 	{
 		AI_Output(self, other, "DIA_Canthar_PersonalCRIMES_09_01"); //(spöttisch) Hast du gedacht, du könntest mich so leicht besiegen?
